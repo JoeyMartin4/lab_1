@@ -50,14 +50,16 @@ def getOtherCosts():
 # printReceipt() accepts total cost, tax rate, and
 # shipping costs and calculates and prints the tax
 # amount, and total cost
-def printReceipt(totalCost, taxRate, shipping):
-    taxAmount = totalCost * taxRate
+def printReceipt(subTotalCost, taxRate, shipping):
+    taxAmount = subTotalCost * taxRate
+    totalCost = subTotalCost + taxAmount + shipping
+
     #print(taxAmount)
-    print("\nSubtotal: $", format(totalCost, ".2f"))
+    print("\nSubtotal: $", format(subTotalCost, ".2f"))
     print("Tax: $", format(taxAmount, ".2f"))
     print("Shipping: $", format(shipping, ".2f"))
     print("------------------------")
-    print("Please pay: $", format(totalCost + taxAmount + shipping, ".2f"))
+    print("Please pay: $", format(totalCost, ".2f"))
 
 
 main()
